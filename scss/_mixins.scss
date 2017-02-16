@@ -1,0 +1,60 @@
+//variables
+$primary-color: #01579B;
+//mixins
+@function calculateRem($size) {
+  $remSize: $size / 16px;
+  @return $remSize * 1rem;
+}
+
+@mixin font-size($size) {
+  font-size: $size;
+  font-size: calculateRem($size);
+}
+
+@mixin flex-box($justify, $align) {
+  display: flex;
+  justify-content: $justify;
+  align-items: $align;
+}
+
+@mixin pseudo($display: block, $pos: absolute, $content: '') {
+  content: $content;
+  display: $display;
+  position: $pos;
+}
+
+@mixin arrow($size, $direction) {
+  @if $size==big {
+    border-top: 40px solid transparent;
+    border-bottom: 40px solid transparent;
+    @if $direction==right {
+      border-left: 64px solid $primary-color;
+    }
+    @else if $direction==left {
+      border-right: 64px solid $primary-color;
+    }
+  }
+  @else if $size==small {
+    border-top: 18px solid transparent;
+    border-bottom: 18px solid transparent;
+    @if $direction==right {
+      border-left: 32px solid #fff;
+    }
+    @else if $direction==left {
+      border-right: 32px solid #fff;
+    }
+  }
+}
+
+//extend
+%clearfix {
+  *zoom: 1;
+  &:before,
+  &:after {
+    content: " ";
+    display: table;
+  }
+  &:after {
+    clear: both;
+  }
+}

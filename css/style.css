@@ -1,0 +1,169 @@
+html,
+body,
+ul,
+ol {
+  margin: 0;
+  padding: 0; }
+
+header {
+  *zoom: 1; }
+  header:before, header:after {
+    content: " ";
+    display: table; }
+  header:after {
+    clear: both; }
+
+html,
+body {
+  width: 100%;
+  height: 100%; }
+
+* {
+  box-sizing: border-box; }
+
+header {
+  width: 100%;
+  height: 80px; }
+
+main {
+  width: 100%;
+  height: calc(100% - 80px);
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+  main #box {
+    width: 600px;
+    height: 350px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center; }
+    main #box #quote-box {
+      width: 80%; }
+    main #box::before, main #box::after {
+      content: "";
+      display: block;
+      position: absolute;
+      width: calc(100% + 24px);
+      height: 12px;
+      left: -12px;
+      transition: all 0.3s ease-out; }
+    main #box::before {
+      float: left;
+      top: -12px; }
+    main #box::after {
+      float: right;
+      bottom: -12px; }
+
+.arrow {
+  width: 0;
+  height: 0;
+  display: block;
+  position: relative;
+  cursor: pointer;
+  transition: all 0.2s ease-out; }
+
+#arrow-box {
+  width: 80%;
+  height: 80px;
+  left: 10%;
+  position: absolute;
+  top: 50%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center; }
+
+#social {
+  width: 100%;
+  position: absolute;
+  bottom: -250px;
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+  #social li {
+    display: inline-block;
+    margin: 4rem 2rem;
+    height: 100px; }
+    #social li .social-box {
+      width: 64px;
+      height: 64px;
+      position: relative; }
+      #social li .social-box::after {
+        content: "";
+        display: block;
+        position: absolute;
+        height: 12px;
+        width: calc(100% + 24px);
+        left: -12px;
+        bottom: -12px;
+        transition: all 0.2s ease-out; }
+      #social li .social-box:hover:after {
+        transform: translateY(32px); }
+
+* {
+  font-family: "Montserrat", Arial, Helvetica, sans-serif;
+  color: #01579B; }
+
+header {
+  text-align: center; }
+  header h1 {
+    font-size: 64px;
+    font-size: 4rem; }
+
+main #box {
+  border: #01579B solid 12px;
+  text-align: center; }
+  main #box::before, main #box::after {
+    background-color: #01579B; }
+  main #box::before {
+    transform: translateY(-2rem); }
+  main #box::after {
+    transform: translateY(2rem); }
+
+#quote-box #quote-body {
+  font-weight: bold;
+  font-size: 1.5rem; }
+
+#arrow-box .left {
+  border-top: 40px solid transparent;
+  border-bottom: 40px solid transparent;
+  border-right: 64px solid #01579B; }
+  #arrow-box .left::after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: -18px;
+    left: 20px;
+    border-top: 18px solid transparent;
+    border-bottom: 18px solid transparent;
+    border-right: 32px solid #fff; }
+  #arrow-box .left:hover {
+    transform: translateX(-1rem); }
+#arrow-box .right {
+  border-top: 40px solid transparent;
+  border-bottom: 40px solid transparent;
+  border-left: 64px solid #01579B; }
+  #arrow-box .right::after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: -18px;
+    right: 20px;
+    border-top: 18px solid transparent;
+    border-bottom: 18px solid transparent;
+    border-left: 32px solid #fff; }
+  #arrow-box .right:hover {
+    transform: translateX(1rem); }
+
+#social li .social-box {
+  border: #01579B solid 12px;
+  cursor: pointer; }
+  #social li .social-box::after {
+    background-color: #01579B; }
+#social li #twitter-box {
+  background: url(../images/twitter.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 32px 32px; }
+
+/*# sourceMappingURL=style.css.map */

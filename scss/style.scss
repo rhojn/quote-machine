@@ -1,0 +1,177 @@
+@import "reset";
+@import "mixins";
+//Skeleton
+html,
+body {
+  width: 100%;
+  height: 100%;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+header {
+  width: 100%;
+  height: 80px;
+  @extend %clearfix;
+}
+
+main {
+  width: 100%;
+  height: calc(100% - 80px);
+  @include flex-box(center, center);
+  #box {
+    width: 600px;
+    height: 350px;
+    position: relative;
+    @include flex-box(center, center);
+    #quote-box {
+      width: 80%;
+    }
+    &::before,
+    &::after {
+      @include pseudo;
+      width: calc(100% + 24px);
+      height: 12px;
+      left: -12px;
+      transition: all 0.3s ease-out;
+    }
+    &::before {
+      float: left;
+      top: -12px;
+    }
+    &::after {
+      float: right;
+      bottom: -12px;
+    }
+  }
+}
+
+.arrow {
+  width: 0;
+  height: 0;
+  display: block;
+  position: relative;
+  cursor: pointer;
+  transition: all 0.2s ease-out;
+}
+
+#arrow-box {
+  width: 80%;
+  height: 80px;
+  left: 10%;
+  position: absolute;
+  top: 50%;
+  @include flex-box(space-between, center);
+}
+
+#social {
+  width: 100%;
+  position: absolute;
+  bottom: -250px;
+  @include flex-box(center, center);
+  li {
+    display: inline-block;
+    margin: 4rem 2rem;
+    height: 100px;
+    .social-box {
+      width: 64px;
+      height: 64px;
+      position: relative;
+      &::after {
+        @include pseudo;
+        height: 12px;
+        width: calc(100% + 24px);
+        left: -12px;
+        bottom: -12px;
+        transition: all 0.2s ease-out;
+      }
+      &:hover:after {
+        transform: translateY(32px);
+      }
+    }
+  }
+}
+
+//Skin
+* {
+  font-family: "Montserrat", Arial, Helvetica, sans-serif;
+  color: $primary-color;
+}
+
+header {
+  text-align: center;
+  h1 {
+    @include font-size(64px);
+  }
+}
+
+main {
+  #box {
+    border: $primary-color solid 12px;
+    text-align: center;
+    &::before,
+    &::after {
+      background-color: $primary-color;
+    }
+    &::before {
+      transform: translateY(-2rem);
+    }
+    &::after {
+      transform: translateY(2rem);
+    }
+  }
+}
+
+#quote-box {
+  #quote-body {
+    font-weight: bold;
+    font-size: 1.5rem;
+  }
+}
+
+#arrow-box {
+  .left {
+    @include arrow(big, left);
+    &::after {
+      @include pseudo;
+      top: -18px;
+      left: 20px;
+      @include arrow(small, left);
+    }
+    &:hover {
+      transform: translateX(-1rem);
+    }
+  }
+  .right {
+    @include arrow(big, right);
+    &::after {
+      @include pseudo;
+      top: -18px;
+      right: 20px;
+      @include arrow(small, right);
+    }
+    &:hover {
+      transform: translateX(1rem);
+    }
+  }
+}
+
+#social {
+  li {
+    .social-box {
+      border: $primary-color solid 12px;
+      cursor: pointer;
+      &::after {
+        background-color: $primary-color;
+      }
+    }
+    #twitter-box {
+      background: url(../images/twitter.svg);
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: 32px 32px;
+    }
+  }
+}
